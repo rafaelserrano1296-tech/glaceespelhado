@@ -8,6 +8,8 @@ export default async function handler(req, res) {
   try {
     const { amount, email, cellphone } = req.body;
 
+    // customer só é aceito com todos os campos obrigatórios (name, email, taxId, cellphone)
+    // como não coletamos name e taxId, guardamos email/telefone nos metadata
     const response = await fetch('https://api.abacatepay.com/v2/transparents/create', {
       method: 'POST',
       headers: {
@@ -20,7 +22,7 @@ export default async function handler(req, res) {
           amount,
           description: 'Glacê Espelhado Premium',
           expiresIn: 1800,
-          customer: { email, cellphone: cellphone || '' },
+          metadata: { email, cellphone: cellphone || '' },
         },
       }),
     });
