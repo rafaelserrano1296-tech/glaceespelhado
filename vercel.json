@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/api/pix/create", "destination": "/api/pix-create" },
+    { "source": "/api/pix/check",  "destination": "/api/pix-check"  }
+  ]
+}
