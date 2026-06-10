@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glacê Espelhado Premium – O Detalhe que Faz Você Cobrar Muito Mais</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800;900&family=Satoshi:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── RESET & BASE ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 500;
+      background: #fff;
+      color: #0d0d0d;
+      overflow-x: hidden;
+    }
+
+    /* ─── PALETTE ───
+       Primary   : #f7c8d8  (baby-rose)
+       Dark      : #1a0a10  (deep noir)
+       Gold      : #c9a84c  (warm gold)
+       UI White  : #ffffff
+       Text      : #0d0d0d
+    ─────────────── */
+
+    /* ─── TYPOGRAPHY ─── */
+    .heading { font-family: 'Cabinet Grotesk', sans-serif; font-weight: 800; letter-spacing: -0.04em; line-height: 1.05; }
+    .heading-xl  { font-size: clamp(2.4rem, 6vw, 5rem); }
+    .heading-lg  { font-size: clamp(2rem, 4.5vw, 3.6rem); }
+    .heading-md  { font-size: clamp(1.6rem, 3vw, 2.4rem); }
+    .heading-sm  { font-size: clamp(1.2rem, 2vw, 1.6rem); }
+
+    /* ─── SHADOWS ─── */
+    .shadow-sm  { box-shadow: 4px 4px 0px 0px #0d0d0d; }
+    .shadow-md  { box-shadow: 6px 6px 0px 0px #0d0d0d; }
+    .shadow-lg  { box-shadow: 8px 8px 0px 0px #0d0d0d; }
+    .shadow-xl  { box-shadow: 12px 12px 0px 0px #0d0d0d; }
+
+    /* ─── DOT PATTERN ─── */
+    .dot-pattern {
+      background-image: radial-gradient(circle, #0d0d0d 1.5px, transparent 1.5px);
+      background-size: 28px 28px;
+      background-position: 0 0;
+      opacity: 0.07;
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    /* ─── BUTTON ─── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800;
+      border: 2px solid #0d0d0d;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all .18s cubic-bezier(.175,.885,.32,1.275);
+      border-radius: 10px;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: #0d0d0d;
+      color: #fff;
+      padding: 1rem 2.2rem;
+      font-size: 1.05rem;
+      box-shadow: 8px 8px 0px 0px #c9a84c;
+    }
+    .btn-primary:hover { transform: translate(4px,4px); box-shadow: 4px 4px 0px 0px #c9a84c; }
+    .btn-cta {
+      background: #c9a84c;
+      color: #0d0d0d;
+      padding: 1.3rem 3rem;
+      font-size: 1.2rem;
+      box-shadow: 8px 8px 0px 0px #0d0d0d;
+    }
+    .btn-cta:hover { transform: translate(4px,4px); box-shadow: 4px 4px 0px 0px #0d0d0d; }
+    .btn-cta-lg {
+      background: #c9a84c;
+      color: #0d0d0d;
+      padding: 1.5rem 3.5rem;
+      font-size: 1.35rem;
+      box-shadow: 10px 10px 0px 0px #0d0d0d;
+      width: 100%;
+      max-width: 520px;
+    }
+    .btn-cta-lg:hover { transform: translate(5px,5px); box-shadow: 5px 5px 0px 0px #0d0d0d; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 72px;
+      background: #f7c8d8;
+      border-bottom: 2px solid #0d0d0d;
+      display: flex;
+      align-items: center;
+      padding: 0 6vw;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: .7rem;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800; font-size: 1.1rem;
+    }
+    .nav-logo-icon {
+      width: 40px; height: 40px;
+      background: #1a0a10;
+      border: 2px solid #0d0d0d;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+    }
+    .nav-cta { display: block; }
+    @media (max-width: 480px) { .nav-cta { display: none; } }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative;
+      background: #f7c8d8;
+      border-bottom: 2px solid #0d0d0d;
+      padding: 120px 6vw 80px;
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-visual { order: -1; }
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: #fff;
+      border: 2px solid #0d0d0d;
+      border-radius: 999px;
+      padding: .4rem 1rem;
+      font-size: .85rem;
+      font-weight: 700;
+      margin-bottom: 1.4rem;
+      box-shadow: 3px 3px 0px 0px #0d0d0d;
+    }
+    .hero-title { color: #0d0d0d; margin-bottom: 1.2rem; }
+    .hero-title span {
+      -webkit-text-stroke: 2px #0d0d0d;
+      color: transparent;
+    }
+    .hero-sub {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #1a0a10;
+      margin-bottom: 2rem;
+      max-width: 520px;
+    }
+
+    /* Browser Mockup */
+    .browser-mockup {
+      background: #fff;
+      border: 2px solid #0d0d0d;
+      border-radius: 16px;
+      box-shadow: 12px 12px 0px 0px #0d0d0d;
+      overflow: hidden;
+    }
+    .browser-bar {
+      background: #1a0a10;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      padding: 0 1rem;
+      gap: .5rem;
+    }
+    .browser-dot { width: 13px; height: 13px; border-radius: 50%; }
+    .bd-r { background: #ff5f57; }
+    .bd-y { background: #febc2e; }
+    .bd-g { background: #28c840; }
+    .browser-content { padding: 1.5rem; background: #fff8fa; }
+    .cake-visual {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border: 2px solid #0d0d0d;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .browser-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: .75rem;
+      margin-top: 1rem;
+    }
+    .stat-card {
+      background: #1a0a10;
+      border: 2px solid #0d0d0d;
+      border-radius: 8px;
+      padding: .75rem;
+      color: #fff;
+      text-align: center;
+    }
+    .stat-card .val {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: #c9a84c;
+    }
+    .stat-card .lbl { font-size: .65rem; opacity: .7; margin-top: .2rem; }
+
+    /* ─── MARQUEE ─── */
+    .marquee-section {
+      background: #1a0a10;
+      border-bottom: 2px solid #0d0d0d;
+      padding: 1rem 0;
+      overflow: hidden;
+    }
+    .marquee-track {
+      display: flex;
+      gap: 3rem;
+      animation: marquee 22s linear infinite;
+      width: max-content;
+    }
+    .marquee-track span {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #c9a84c;
+      opacity: .7;
+      white-space: nowrap;
+      letter-spacing: .1em;
+    }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 80px 6vw; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+
+    /* ─── PAIN ─── */
+    #pain {
+      background: #fff;
+      border-bottom: 2px solid #0d0d0d;
+    }
+    .pain-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    @media (max-width: 700px) { .pain-grid { grid-template-columns: 1fr; } }
+    .pain-card {
+      border: 2px solid #0d0d0d;
+      border-radius: 12px;
+      padding: 2rem;
+    }
+    .pain-card.bad {
+      background: #f4f4f5;
+      border-style: dashed;
+      opacity: .8;
+    }
+    .pain-card.good {
+      background: #f7c8d8;
+      box-shadow: 8px 8px 0px 0px #0d0d0d;
+    }
+    .pain-card h3 {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+    .pain-list { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+    .pain-list li { display: flex; align-items: flex-start; gap: .5rem; line-height: 1.5; }
+    .pain-list li .ico { font-size: 1.1rem; flex-shrink: 0; margin-top: .1rem; }
+
+    /* ─── SOLUTION ─── */
+    #solution {
+      background: #f7c8d8;
+      border-bottom: 2px solid #0d0d0d;
+    }
+    .sol-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .sol-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: #fff;
+      border: 2px solid #0d0d0d;
+      border-radius: 10px;
+      padding: 1.2rem 1.5rem;
+      box-shadow: 4px 4px 0px 0px #0d0d0d;
+    }
+    .sol-item .check-box {
+      width: 36px; height: 36px;
+      background: #c9a84c;
+      border: 2px solid #0d0d0d;
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .sol-item p { font-size: 1.05rem; line-height: 1.5; padding-top: .4rem; }
+
+    /* ─── BENEFITS ─── */
+    #benefits {
+      background: #fff;
+      border-bottom: 2px solid #0d0d0d;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    @media (max-width: 860px) { .benefits-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 520px) { .benefits-grid { grid-template-columns: 1fr; } }
+    .benefit-card {
+      background: #fff;
+      border: 2px solid #0d0d0d;
+      border-radius: 12px;
+      padding: 1.8rem 1.5rem;
+      box-shadow: 4px 4px 0px 0px #0d0d0d;
+      transition: box-shadow .15s, transform .15s;
+    }
+    .benefit-card:hover { transform: translate(-3px,-3px); box-shadow: 7px 7px 0px 0px #0d0d0d; }
+    .benefit-icon-box {
+      width: 52px; height: 52px;
+      background: #f7c8d8;
+      border: 2px solid #0d0d0d;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      transition: background .15s;
+    }
+    .benefit-card:hover .benefit-icon-box { background: #c9a84c; }
+    .benefit-card h3 {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      margin-bottom: .5rem;
+    }
+    .benefit-card p { font-size: .95rem; line-height: 1.5; opacity: .8; }
+
+    /* ─── TRANSFORMATION ─── */
+    #transformation {
+      background: #1a0a10;
+      border-bottom: 2px solid #0d0d0d;
+    }
+    #transformation .heading { color: #fff; }
+    .transform-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 2rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+    @media (max-width: 700px) {
+      .transform-grid { grid-template-columns: 1fr; text-align: center; }
+      .arrow-col { transform: rotate(90deg); font-size: 2rem; }
+    }
+    .transform-card {
+      border: 2px solid #0d0d0d;
+      border-radius: 14px;
+      padding: 2.5rem 2rem;
+    }
+    .transform-card.before {
+      background: #272727;
+      color: #fff;
+      opacity: .8;
+    }
+    .transform-card.after {
+      background: #c9a84c;
+      color: #0d0d0d;
+      box-shadow: 8px 8px 0px 0px #f7c8d8;
+    }
+    .transform-card .label {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: .8rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      margin-bottom: .8rem;
+      opacity: .6;
+    }
+    .transform-card.after .label { opacity: 1; }
+    .transform-card h3 {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      line-height: 1.2;
+      margin-bottom: .8rem;
+    }
+    .transform-card p { font-size: 1rem; line-height: 1.6; }
+    .arrow-col { font-size: 3rem; color: #c9a84c; text-align: center; }
+
+    /* ─── HOW IT WORKS ─── */
+    #how {
+      background: #1a0a10;
+      border-bottom: 2px solid #0d0d0d;
+      position: relative;
+    }
+    #how .heading { color: #fff; }
+    .steps-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 3.5rem;
+      position: relative;
+    }
+    @media (max-width: 700px) { .steps-row { grid-template-columns: 1fr; } }
+    .steps-row::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: calc(16.67% + 24px);
+      right: calc(16.67% + 24px);
+      height: 2px;
+      background: #272727;
+    }
+    @media (max-width: 700px) { .steps-row::before { display: none; } }
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 1.5rem;
+    }
+    .step-circle {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 900;
+      font-size: 1.6rem;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 1.5rem;
+    }
+    .step:nth-child(1) .step-circle { background: #f7c8d8; color: #0d0d0d; border: 4px solid #f7c8d8; box-shadow: 0 0 0 4px #f7c8d850; }
+    .step:nth-child(2) .step-circle { background: #c9a84c; color: #0d0d0d; border: 4px solid #c9a84c; box-shadow: 0 0 0 4px #c9a84c50; }
+    .step:nth-child(3) .step-circle { background: #fff; color: #0d0d0d; border: 4px solid #fff; box-shadow: 0 0 0 4px #ffffff50; }
+    .step h3 {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: #fff;
+      margin-bottom: .6rem;
+    }
+    .step p { color: #ccc; font-size: .95rem; line-height: 1.6; }
+
+    /* ─── TESTIMONIALS ─── */
+    #testimonials {
+      background: #f7c8d8;
+      border-bottom: 2px solid #0d0d0d;
+    }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    @media (max-width: 860px) { .testi-grid { grid-template-columns: 1fr; } }
+    .testi-card {
+      background: #fff;
+      border: 2px solid #0d0d0d;
+      padding: 2rem;
+      border-radius: 10px 30px 10px 30px;
+      box-shadow: 4px 4px 0px 0px #0d0d0d;
+    }
+    .stars { color: #c9a84c; font-size: 1.2rem; margin-bottom: .8rem; }
+    .testi-card p { font-size: 1rem; line-height: 1.65; font-style: italic; margin-bottom: 1rem; }
+    .testi-author { display: flex; align-items: center; gap: .75rem; }
+    .testi-avatar {
+      width: 44px; height: 44px;
+      background: #f7c8d8;
+      border: 2px solid #0d0d0d;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+    .testi-author div strong { display: block; font-weight: 700; font-size: .95rem; }
+    .testi-author div span { font-size: .8rem; opacity: .6; }
+
+    /* ─── OFFER ─── */
+    #offer {
+      background: #f7c8d8;
+      border-bottom: 2px solid #0d0d0d;
+      position: relative;
+      overflow: hidden;
+    }
+    .offer-box {
+      background: #1a0a10;
+      border: 2px solid #0d0d0d;
+      border-radius: 16px;
+      box-shadow: 12px 12px 0px 0px #c9a84c;
+      padding: 3.5rem 3rem;
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .offer-badge {
+      display: inline-block;
+      background: #c9a84c;
+      color: #0d0d0d;
+      border: 2px solid #0d0d0d;
+      border-radius: 999px;
+      padding: .4rem 1.4rem;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: .85rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .offer-box h2 { color: #fff; margin-bottom: .5rem; }
+    .offer-box .sub { color: #ccc; font-size: 1rem; margin-bottom: 2rem; }
+    .price-old {
+      text-decoration: line-through;
+      color: #888;
+      font-size: 1rem;
+      margin-bottom: .3rem;
+    }
+    .price-new {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 900;
+      font-size: 3.8rem;
+      color: #c9a84c;
+      line-height: 1;
+      margin-bottom: .5rem;
+    }
+    .price-note { font-size: .9rem; color: #bbb; margin-bottom: 2rem; }
+    .offer-perks {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .perk {
+      display: flex; align-items: center; gap: .4rem;
+      font-size: .9rem; color: #ccc;
+    }
+    .perk .dot { width: 8px; height: 8px; background: #c9a84c; border-radius: 50%; flex-shrink: 0; }
+
+    /* ─── GUARANTEE ─── */
+    #guarantee {
+      background: #fff;
+      border-bottom: 2px solid #0d0d0d;
+    }
+    .guarantee-inner {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    @media (max-width: 640px) { .guarantee-inner { flex-direction: column; text-align: center; } }
+    .guarantee-badge-big {
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      background: #f7c8d8;
+      border: 2px solid #0d0d0d;
+      box-shadow: 6px 6px 0px 0px #0d0d0d;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .guarantee-badge-big .num {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 900;
+      font-size: 2.8rem;
+      line-height: 1;
+    }
+    .guarantee-badge-big .dias {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: .8rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .guarantee-text h2 { margin-bottom: .8rem; }
+    .guarantee-text p { font-size: 1.05rem; line-height: 1.7; opacity: .85; }
+
+    /* ─── FAQ ─── */
+    #faq {
+      background: #f4f4f5;
+      border-bottom: 2px solid #0d0d0d;
+    }
+    .faq-list { max-width: 800px; margin: 2.5rem auto 0; display: flex; flex-direction: column; gap: 1rem; }
+    details {
+      background: #fff;
+      border: 2px solid #0d0d0d;
+      border-radius: 10px;
+      padding: 1.4rem 1.8rem;
+      box-shadow: 4px 4px 0px 0px #0d0d0d;
+      cursor: pointer;
+    }
+    summary {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    summary::after { content: '+'; font-size: 1.4rem; flex-shrink: 0; color: #c9a84c; transition: transform .2s; }
+    details[open] summary::after { content: '−'; }
+    details p { margin-top: 1rem; font-size: .98rem; line-height: 1.65; opacity: .8; }
+
+    /* ─── FINAL CTA ─── */
+    #final-cta {
+      background: #f7c8d8;
+      border-bottom: 2px solid #0d0d0d;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    #final-cta .heading { max-width: 750px; margin: 0 auto 1.5rem; }
+    #final-cta .sub { font-size: 1.1rem; opacity: .8; max-width: 580px; margin: 0 auto 2.5rem; line-height: 1.7; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #1a0a10;
+      border-top: 2px solid #0d0d0d;
+      padding: 3rem 6vw;
+      color: #ccc;
+      text-align: center;
+    }
+    footer .footer-logo {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: #f7c8d8;
+      margin-bottom: .5rem;
+    }
+    footer .footer-copy { font-size: .85rem; opacity: .5; }
+    footer .footer-links { display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem; }
+    footer .footer-links a {
+      color: #c9a84c;
+      text-decoration: none;
+      font-size: .85rem;
+      font-weight: 600;
+      border-bottom: 1px solid transparent;
+      transition: border-color .15s;
+    }
+    footer .footer-links a:hover { border-color: #c9a84c; }
+
+    /* ─── SCARCITY BAR ─── */
+    .scarcity-bar {
+      background: #c9a84c;
+      border-bottom: 2px solid #0d0d0d;
+      text-align: center;
+      padding: .75rem 1rem;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: .95rem;
+      letter-spacing: .02em;
+    }
+
+    /* ─── SECTION HEADER ─── */
+    .section-header { text-align: center; }
+    .section-header .eyebrow {
+      display: inline-block;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: #c9a84c;
+      margin-bottom: .5rem;
+    }
+
+    /* ─── UTIL ─── */
+    .text-center { text-align: center; }
+    .mt-sm { margin-top: 1rem; }
+    .mt-md { margin-top: 2rem; }
+    .mt-lg { margin-top: 3rem; }
+    .flex-center { display: flex; justify-content: center; }
+  </style>
+</head>
+<body>
+
+<!-- SCARCITY BAR -->
+<div class="scarcity-bar">
+  🔥 Oferta de Lançamento — Valor especial por tempo limitado!
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-icon">✨</div>
+    <span>Glacê Premium</span>
+  </div>
+  <a href="#offer" class="btn btn-primary nav-cta">Garantir Acesso</a>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="dot-pattern"></div>
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="badge">🏆 Mini Curso Digital — Acesso Imediato</div>
+      <h1 class="heading heading-xl hero-title">
+        O Detalhe Que Pode Fazer Você Cobrar <span>2x ou 3x Mais</span> Pelo Mesmo Bolo
+      </h1>
+      <p class="hero-sub">
+        Aprenda a receita exata do Glacê Espelhado que cria um acabamento profissional, impressiona clientes e transforma bolos simples em produtos premium.
+      </p>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+        <a href="#offer" class="btn btn-cta">👉 QUERO APRENDER AGORA</a>
+      </div>
+      <p class="mt-sm" style="font-size:.85rem; opacity:.6;">✔ Pagamento único &nbsp;·&nbsp; ✔ Acesso imediato &nbsp;·&nbsp; ✔ Garantia de 7 dias</p>
+    </div>
+    <div class="hero-visual">
+      <div class="browser-mockup">
+        <div class="browser-bar">
+          <div class="browser-dot bd-r"></div>
+          <div class="browser-dot bd-y"></div>
+          <div class="browser-dot bd-g"></div>
+        </div>
+        <div class="browser-content">
+          <div class="cake-visual">
+            <img src="https://i.imgur.com/TdsApDn.jpeg" alt="Bolo com acabamento glacê espelhado premium" style="width:100%;height:100%;object-fit:cover;border-radius:6px;display:block;" />
+          </div>
+          <div class="browser-stats">
+            <div class="stat-card">
+              <div class="val">3×</div>
+              <div class="lbl">Mais valor percebido</div>
+            </div>
+            <div class="stat-card">
+              <div class="val">R$29</div>
+              <div class="lbl">Acesso completo</div>
+            </div>
+            <div class="stat-card">
+              <div class="val">1 dia</div>
+              <div class="lbl">Para aplicar</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MARQUEE ─── -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span>CONFEITARIA PREMIUM</span><span>·</span>
+    <span>GLACÊ ESPELHADO</span><span>·</span>
+    <span>BOLOS PERSONALIZADOS</span><span>·</span>
+    <span>ALTA LUCRATIVIDADE</span><span>·</span>
+    <span>ACABAMENTO PROFISSIONAL</span><span>·</span>
+    <span>VALOR PERCEBIDO</span><span>·</span>
+    <span>RECEITA EXCLUSIVA</span><span>·</span>
+    <span>CONFEITARIA PREMIUM</span><span>·</span>
+    <span>GLACÊ ESPELHADO</span><span>·</span>
+    <span>BOLOS PERSONALIZADOS</span><span>·</span>
+    <span>ALTA LUCRATIVIDADE</span><span>·</span>
+    <span>ACABAMENTO PROFISSIONAL</span><span>·</span>
+    <span>VALOR PERCEBIDO</span><span>·</span>
+    <span>RECEITA EXCLUSIVA</span><span>·</span>
+  </div>
+</div>
+
+<!-- ─── PAIN ─── -->
+<section id="pain">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="eyebrow">O Problema</span>
+      <h2 class="heading heading-lg">Seus Bolos São Bons,<br>Mas Parecem Comuns?</h2>
+      <p style="max-width:600px; margin:.8rem auto 0; opacity:.7; line-height:1.7;">
+        Muitas confeiteiras perdem vendas porque seus bolos não possuem aquele acabamento que chama atenção imediatamente. O cliente compra primeiro com os olhos.
+      </p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card bad">
+        <h3>❌ Sem o Glacê Espelhado</h3>
+        <ul class="pain-list">
+          <li><span class="ico">😞</span> Bolo bonito mas sem diferencial visual</li>
+          <li><span class="ico">😞</span> Cliente compara apenas pelo preço</li>
+          <li><span class="ico">😞</span> Dificuldade de cobrar mais caro</li>
+          <li><span class="ico">😞</span> Perdendo espaço para concorrentes</li>
+          <li><span class="ico">😞</span> Trabalho duro sem retorno justo</li>
+          <li><span class="ico">😞</span> Foto não engaja nas redes sociais</li>
+        </ul>
+      </div>
+      <div class="pain-card good">
+        <h3>✅ Com o Glacê Espelhado</h3>
+        <ul class="pain-list">
+          <li><span class="ico">🌟</span> Acabamento que impressiona na hora</li>
+          <li><span class="ico">🌟</span> Cliente pergunta o preço sem hesitar</li>
+          <li><span class="ico">🌟</span> Valor percebido multiplica 2x ou 3x</li>
+          <li><span class="ico">🌟</span> Diferencial exclusivo no mercado local</li>
+          <li><span class="ico">🌟</span> Faturamento maior com mesmo esforço</li>
+          <li><span class="ico">🌟</span> Foto viraliza e atrai novos clientes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SOLUTION ─── -->
+<section id="solution">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="eyebrow">A Solução</span>
+      <h2 class="heading heading-lg">Descubra o Segredo do Acabamento<br>Que Encanta Clientes</h2>
+      <p style="max-width:580px; margin:.8rem auto 0; opacity:.8; line-height:1.7;">
+        Com esta receita exclusiva e método passo a passo, você aprenderá tudo que precisa para aplicar o glacê espelhado profissional.
+      </p>
+    </div>
+    <div class="sol-checklist">
+      <div class="sol-item">
+        <div class="check-box">✅</div>
+        <p><strong>Como preparar o glacê espelhado perfeito</strong> — ingredientes, proporções e temperatura exata para um resultado impecável.</p>
+      </div>
+      <div class="sol-item">
+        <div class="check-box">✅</div>
+        <p><strong>O ponto exato para obter brilho intenso</strong> — a consistência certa que faz toda a diferença no reflexo final.</p>
+      </div>
+      <div class="sol-item">
+        <div class="check-box">✅</div>
+        <p><strong>Como aplicar sem manchas ou falhas</strong> — a técnica correta de derramamento e finalização profissional.</p>
+      </div>
+      <div class="sol-item">
+        <div class="check-box">✅</div>
+        <p><strong>Como criar acabamentos premium em diversos temas</strong> — adapte a outros bolos e aumente seu portfólio.</p>
+      </div>
+      <div class="sol-item">
+        <div class="check-box">✅</div>
+        <p><strong>Como valorizar seus bolos e aumentar seu faturamento</strong> — estratégia de precificação para cobrar o valor justo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BENEFITS ─── -->
+<section id="benefits">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="eyebrow">Benefícios</span>
+      <h2 class="heading heading-lg">O Que Você Vai Ganhar</h2>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon-box">💰</div>
+        <h3>Cobrar Mais</h3>
+        <p>Justifique preços maiores com um acabamento que impressiona qualquer cliente.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon-box">✨</div>
+        <h3>Acabamento Profissional</h3>
+        <p>Resultado de nível profissional, mesmo para quem está começando agora.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon-box">🎂</div>
+        <h3>Diferencial Exclusivo</h3>
+        <p>Ofereça algo que poucos confeiteiros oferecem na sua cidade.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon-box">⏱️</div>
+        <h3>Método Simples e Rápido</h3>
+        <p>Aprenda e aplique no mesmo dia — sem complicação, sem equipamentos caros.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon-box">📈</div>
+        <h3>Maior Valor Percebido</h3>
+        <p>O cliente paga mais por bolos que parecem obras de arte — e o seu vai parecer.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon-box">🏆</div>
+        <h3>Destaque da Concorrência</h3>
+        <p>Saia na frente com um visual que ninguém mais tem no seu mercado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TRANSFORMATION ─── -->
+<section id="transformation">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="eyebrow" style="color:#c9a84c;">Transformação</span>
+      <h2 class="heading heading-lg" style="color:#fff;">Antes e Depois do Glacê Espelhado</h2>
+    </div>
+    <div class="transform-grid">
+      <div class="transform-card before">
+        <div class="label">Antes</div>
+        <h3>Bolos bonitos mas comuns</h3>
+        <p>Seu trabalho é bom, mas o visual não chama atenção. O cliente compara preço e vai embora.</p>
+      </div>
+      <div class="arrow-col">→</div>
+      <div class="transform-card after">
+        <div class="label">Depois</div>
+        <h3>Bolos premium que viralizam</h3>
+        <p>Clientes chegam até você perguntando: <strong>"Quanto custa esse bolo?"</strong> Sem precisar explicar o valor — ele já está evidente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HOW IT WORKS ─── -->
+<section id="how">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="eyebrow">Como Funciona</span>
+      <h2 class="heading heading-lg" style="color:#fff;">Simples, Rápido e Eficaz</h2>
+    </div>
+    <div class="steps-row">
+      <div class="step">
+        <div class="step-circle">1</div>
+        <h3>Compre e Acesse</h3>
+        <p>Pagamento único, acesso imediato. Em 2 minutos você já está assistindo o conteúdo.</p>
+      </div>
+      <div class="step">
+        <div class="step-circle">2</div>
+        <h3>Aprenda o Método</h3>
+        <p>Siga o passo a passo simplificado. Funciona para iniciantes e profissionais.</p>
+      </div>
+      <div class="step">
+        <div class="step-circle">3</div>
+        <h3>Aplique e Cobre Mais</h3>
+        <p>Use no próximo bolo e veja a reação dos clientes — e o quanto eles estão dispostos a pagar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ─── -->
+<section id="testimonials">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="eyebrow">Resultados Reais</span>
+      <h2 class="heading heading-lg">O Que Dizem Quem Já Aprendeu</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>"Nunca imaginei que um acabamento pudesse fazer tanta diferença no preço. Cobrei R$80 a mais no próximo bolo e o cliente nem questionou!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">👩</div>
+          <div>
+            <strong>Camila R.</strong>
+            <span>Confeiteira, São Paulo</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>"Aprendi em um dia e já apliquei no mesmo fim de semana. O resultado ficou igual ao de uma confeitaria famosa. Meus clientes ficaram impressionados!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">👩‍🦱</div>
+          <div>
+            <strong>Fernanda M.</strong>
+            <span>Boleira, Belo Horizonte</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>"Era iniciante e tinha medo de não conseguir. O método é tão simples que acertei na primeira tentativa. Agora é o meu produto mais pedido!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">👩‍🍳</div>
+          <div>
+            <strong>Juliana S.</strong>
+            <span>Iniciante, Rio de Janeiro</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── OFFER ─── -->
+<section id="offer">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="eyebrow">Oferta Especial</span>
+      <h2 class="heading heading-lg">Garanta Seu Acesso Agora</h2>
+    </div>
+    <div class="offer-box mt-lg">
+      <div class="dot-pattern"></div>
+      <div class="offer-badge">🚀 Oferta de Lançamento</div>
+      <h2 class="heading heading-md" style="color:#fff; margin-bottom:.4rem;">Glacê Espelhado Premium</h2>
+      <p class="sub">Passo a passo completo para transformar seus bolos e faturar mais</p>
+      <div class="price-old">De: R$97,00</div>
+      <div class="price-new">R$29,99</div>
+      <div class="price-note">Pagamento único · Sem mensalidade · Acesso vitalício</div>
+      <div class="offer-perks">
+        <div class="perk"><div class="dot"></div> Acesso imediato</div>
+        <div class="perk"><div class="dot"></div> Assista no celular</div>
+        <div class="perk"><div class="dot"></div> Garantia de 7 dias</div>
+        <div class="perk"><div class="dot"></div> Suporte incluso</div>
+      </div>
+      <div class="flex-center">
+        <a href="#" class="btn btn-cta-lg">🔥 QUERO MEU ACESSO POR R$29,99</a>
+      </div>
+      <p style="margin-top:1rem; font-size:.8rem; opacity:.5;">Ao clicar você será direcionado para o checkout seguro</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── GUARANTEE ─── -->
+<section id="guarantee">
+  <div class="section-inner">
+    <div class="guarantee-inner">
+      <div class="guarantee-badge-big">
+        <div class="num">7</div>
+        <div class="dias">DIAS</div>
+      </div>
+      <div class="guarantee-text">
+        <h2 class="heading heading-md">Garantia Incondicional de 7 Dias</h2>
+        <p>Se por qualquer motivo você achar que o conteúdo não é para você, basta solicitar o reembolso dentro do prazo de garantia. Sem burocracia, sem perguntas. Risco zero para você.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section id="faq">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="eyebrow">Dúvidas Frequentes</span>
+      <h2 class="heading heading-lg">Perguntas e Respostas</h2>
+    </div>
+    <div class="faq-list">
+      <details>
+        <summary>Preciso ser profissional para aprender?</summary>
+        <p>Não. O método foi criado especialmente para iniciantes e profissionais. Se você já sabe fazer bolos básicos, está pronto para aprender o glacê espelhado.</p>
+      </details>
+      <details>
+        <summary>Quanto tempo leva para aprender?</summary>
+        <p>Você pode assistir o conteúdo completo e aplicar no mesmo dia. O método foi desenhado para ser direto ao ponto, sem enrolação.</p>
+      </details>
+      <details>
+        <summary>Receberei acesso imediato após a compra?</summary>
+        <p>Sim! Após a confirmação do pagamento, você recebe o acesso imediatamente por e-mail. Pode começar na mesma hora.</p>
+      </details>
+      <details>
+        <summary>Posso usar essa técnica para vender meus bolos?</summary>
+        <p>Sim, essa é exatamente a proposta! Você aprende o glacê espelhado para agregar valor aos seus produtos, justificar preços maiores e aumentar seu faturamento.</p>
+      </details>
+      <details>
+        <summary>Quais equipamentos precisarei?</summary>
+        <p>Os ingredientes e utensílios são simples e acessíveis. Você provavelmente já tem a maioria em casa. Não é necessário equipamento especial ou caro.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FINAL CTA ─── -->
+<section id="final-cta">
+  <div class="dot-pattern"></div>
+  <div class="section-inner" style="position:relative;">
+    <h2 class="heading heading-lg">Seus Clientes Pagam Mais<br>Pelo Que Impressiona</h2>
+    <p class="sub">
+      Você já sabe fazer bolos. Agora está na hora de aprender o detalhe que aumenta o valor percebido e faz seus trabalhos parecerem premium.
+    </p>
+    <div class="flex-center" style="margin-bottom:1rem;">
+      <a href="#offer" class="btn btn-cta-lg">🚀 QUERO APRENDER O GLACÊ ESPELHADO AGORA – R$29,99</a>
+    </div>
+    <p style="font-size:.85rem; opacity:.55; margin-top:.8rem;">✔ Pagamento único &nbsp;·&nbsp; ✔ Garantia de 7 dias &nbsp;·&nbsp; ✔ Acesso imediato</p>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-logo">✨ Glacê Espelhado Premium</div>
+  <div class="footer-copy">© 2025 Glacê Espelhado Premium. Todos os direitos reservados.</div>
+  <div class="footer-links">
+    <a href="#">Termos de Uso</a>
+    <a href="#">Política de Privacidade</a>
+    <a href="#">Suporte</a>
+  </div>
+</footer>
+
+</body>
+</html>
