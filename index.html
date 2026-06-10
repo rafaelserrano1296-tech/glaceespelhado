@@ -1229,7 +1229,6 @@
     observer.observe(hero);
 
     // ── Modal ──
-    const ABACATE_KEY = 'abc_prod_2XBWzZQfCgdjmEasq13NMsne';
     const AMOUNT_CENTS = 1799;
 
     let pollingTimer = null;
@@ -1297,22 +1296,13 @@
       const phone = formatPhone(document.getElementById('inputPhone').value);
 
       try {
-        const res = await fetch('https://api.abacatepay.com/v2/transparents/create', {
+        const res = await fetch('/api/pix/create', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${ABACATE_KEY}`
-          },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            data: {
-              amount: AMOUNT_CENTS,
-              description: 'Glacê Espelhado Premium',
-              expiresIn: 1800,
-              customer: {
-                email: email,
-                cellphone: phone
-              }
-            }
+            amount: AMOUNT_CENTS,
+            email: email,
+            cellphone: phone
           })
         });
 
@@ -1325,7 +1315,7 @@
         const { id, brCode, brCodeBase64 } = json.data;
         currentPixId = id;
 
-        document.getElementById('qrImg').src = `data:image/png;base64,${brCodeBase64}`;
+        document.getElementById('qrImg').src = brCodeBase64;
         document.getElementById('pixCode').textContent = brCode;
         document.getElementById('successEmail').textContent = email;
 
@@ -1358,9 +1348,7 @@
     async function verificarPagamento() {
       if (!currentPixId) return;
       try {
-        const res = await fetch(`https://api.abacatepay.com/v2/transparents/check?id=${currentPixId}`, {
-          headers: { 'Authorization': `Bearer ${ABACATE_KEY}` }
-        });
+        const res = await fetch(`/api/pix/check?id=${currentPixId}`);
         const json = await res.json();
         if (json.success && json.data && json.data.status === 'PAID') {
           clearInterval(pollingTimer);
