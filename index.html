@@ -542,6 +542,236 @@
     @media (min-width: 601px) {
       .sticky-bar { display: none !important; }
     }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.72);
+      backdrop-filter: blur(6px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: #fff;
+      border-radius: 24px;
+      width: 100%;
+      max-width: 440px;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.4);
+      animation: modalIn 0.25s ease;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(24px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .modal-header {
+      background: linear-gradient(135deg, var(--dark) 0%, #2D1B4E 100%);
+      padding: 28px 28px 22px;
+      position: relative;
+      text-align: center;
+    }
+    .modal-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+    }
+    .modal-close {
+      position: absolute;
+      top: 14px; right: 16px;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: rgba(255,255,255,0.7);
+      font-size: 1.1rem;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
+    }
+    .modal-close:hover { background: rgba(255,255,255,0.2); }
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .modal-price-badge {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      color: var(--black);
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 5px 18px;
+      border-radius: 40px;
+      margin-top: 8px;
+    }
+
+    /* Step 1 — form */
+    .modal-body { padding: 28px; }
+    .modal-step { display: none; }
+    .modal-step.active { display: block; }
+
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 13px 16px;
+      border: 2px solid #e8e0f0;
+      border-radius: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: var(--dark);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus { border-color: var(--pink); }
+    .form-group input.error { border-color: #e74c3c; }
+
+    .modal-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--pink) 0%, var(--pink-light) 100%);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 16px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(233,30,140,0.3);
+      transition: opacity 0.2s, transform 0.2s;
+      margin-top: 8px;
+    }
+    .modal-submit:hover { opacity: 0.92; transform: translateY(-1px); }
+    .modal-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    .modal-secure { text-align: center; font-size: 0.75rem; color: var(--text-light); margin-top: 12px; }
+
+    /* Step 2 — PIX */
+    .pix-amount {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 16px;
+    }
+    .qr-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .qr-wrap img {
+      width: 200px; height: 200px;
+      border-radius: 12px;
+      border: 2px solid #e8e0f0;
+      padding: 8px;
+      background: #fff;
+    }
+    .pix-copy-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-light);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .pix-copy-wrap {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .pix-code {
+      flex: 1;
+      padding: 11px 14px;
+      border: 2px solid #e8e0f0;
+      border-radius: 10px;
+      font-size: 0.72rem;
+      color: var(--text-light);
+      font-family: monospace;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      background: var(--gray);
+    }
+    .btn-copy {
+      background: var(--dark);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 0 16px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .btn-copy:hover { background: #2D1B4E; }
+    .btn-copy.copied { background: #27ae60; }
+
+    .pix-status {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      padding: 12px;
+      background: var(--gray);
+      border-radius: 10px;
+      margin-bottom: 4px;
+    }
+    .pix-status .spinner {
+      width: 16px; height: 16px;
+      border: 2px solid #ddd;
+      border-top-color: var(--pink);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      flex-shrink: 0;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Step 3 — success */
+    .success-icon { text-align: center; font-size: 3.5rem; margin-bottom: 12px; }
+    .success-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--dark);
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .success-body { text-align: center; color: var(--text-light); font-size: 0.92rem; line-height: 1.7; }
+    .success-email { color: var(--pink); font-weight: 600; }
+
+    /* loading state */
+    .btn-loading { position: relative; color: transparent !important; }
+    .btn-loading::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px; height: 20px;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
   </style>
 </head>
 <body>
@@ -572,7 +802,7 @@
       </p>
 
       <div class="hero-cta-wrap">
-        <a href="#oferta" class="btn-primary">👉 QUERO APRENDER AGORA</a>
+        <button onclick="openModal()" class="btn-primary">👉 QUERO APRENDER AGORA</button>
       </div>
 
       <div class="hero-trust">
@@ -744,9 +974,9 @@
         <div class="price-new">R$17,99</div>
         <div class="price-note">Pagamento único · Acesso imediato</div>
 
-        <a href="#" class="btn-secondary">
+        <button onclick="openModal()" class="btn-secondary">
           🔥 QUERO MEU ACESSO POR R$17,99
-        </a>
+        </button>
 
         <p style="margin-top:16px; color:rgba(255,255,255,0.4); font-size:0.78rem;">
           🔒 Compra 100% segura · Garantia de 7 dias
@@ -866,9 +1096,9 @@
         e faz seus trabalhos parecerem premium — sem precisar fazer bolos mais difíceis.
       </p>
 
-      <a href="#oferta" class="btn-secondary" style="display:inline-block;">
+      <button onclick="openModal()" class="btn-secondary" style="display:inline-block;">
         🚀 QUERO APRENDER O GLACÊ ESPELHADO AGORA – R$17,99
-      </a>
+      </button>
 
       <p style="margin-top:20px; color:rgba(255,255,255,0.35); font-size:0.8rem;">
         🛡️ Garantia de 7 dias · 🔒 Pagamento seguro · ⚡ Acesso imediato
@@ -892,14 +1122,88 @@
       <span class="sticky-price-old">R$97</span>
       <span class="sticky-price-new">R$17,99</span>
     </div>
-    <a href="#oferta" class="btn-primary">🔥 QUERO AGORA</a>
+    <button onclick="openModal()" class="btn-primary">🔥 QUERO AGORA</button>
+  </div>
+
+  <!-- MODAL DE PAGAMENTO PIX -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+
+      <div class="modal-header">
+        <button class="modal-close" onclick="closeModal()" aria-label="Fechar">✕</button>
+        <div class="modal-title" id="modalTitle">Glacê Espelhado Premium</div>
+        <div class="modal-price-badge">R$17,99 — Pagamento único</div>
+      </div>
+
+      <div class="modal-body">
+
+        <!-- STEP 1: formulário -->
+        <div class="modal-step active" id="step1">
+          <p style="font-size:0.88rem;color:var(--text-light);margin-bottom:20px;line-height:1.6;">
+            Preencha seus dados para receber o acesso imediatamente após o pagamento.
+          </p>
+
+          <div class="form-group">
+            <label for="inputEmail">E-mail *</label>
+            <input type="email" id="inputEmail" placeholder="seu@email.com" autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="inputPhone">Telefone / WhatsApp *</label>
+            <input type="tel" id="inputPhone" placeholder="(11) 99999-9999" autocomplete="tel" />
+          </div>
+
+          <button class="modal-submit" id="btnGerar" onclick="gerarPix()">
+            Gerar PIX
+          </button>
+          <p class="modal-secure">🔒 Pagamento 100% seguro via PIX · Acesso imediato após confirmação</p>
+        </div>
+
+        <!-- STEP 2: QR Code -->
+        <div class="modal-step" id="step2">
+          <div class="pix-amount">R$17,99</div>
+
+          <div class="qr-wrap">
+            <img id="qrImg" src="" alt="QR Code PIX" />
+          </div>
+
+          <p class="pix-copy-label">Ou copie o código Pix Copia e Cola:</p>
+          <div class="pix-copy-wrap">
+            <div class="pix-code" id="pixCode"></div>
+            <button class="btn-copy" id="btnCopy" onclick="copiarPix()">Copiar</button>
+          </div>
+
+          <div class="pix-status" id="pixStatus">
+            <span class="spinner"></span>
+            Aguardando pagamento…
+          </div>
+          <p style="text-align:center;font-size:0.72rem;color:var(--text-light);margin-top:8px;">
+            O QR Code expira em 30 minutos
+          </p>
+        </div>
+
+        <!-- STEP 3: confirmado -->
+        <div class="modal-step" id="step3">
+          <div class="success-icon">🎉</div>
+          <div class="success-title">Pagamento Confirmado!</div>
+          <p class="success-body">
+            Seu acesso ao <strong>Glacê Espelhado Premium</strong> foi enviado para<br>
+            <span class="success-email" id="successEmail"></span><br><br>
+            Verifique sua caixa de entrada (e o spam). Qualquer dúvida, fale com nosso suporte.
+          </p>
+          <button onclick="closeModal()" class="modal-submit" style="margin-top:24px;">
+            Fechar
+          </button>
+        </div>
+
+      </div>
+    </div>
   </div>
 
   <!-- ════════════════════════════════════
-       JS — FAQ accordion + sticky bar
+       JS — FAQ accordion + sticky bar + PIX
   ════════════════════════════════════ -->
   <script>
-    // FAQ accordion
+    // ── FAQ accordion ──
     document.querySelectorAll('.faq-question').forEach(btn => {
       btn.addEventListener('click', () => {
         const expanded = btn.getAttribute('aria-expanded') === 'true';
@@ -915,7 +1219,7 @@
       });
     });
 
-    // Sticky bar — show after hero scrolls out of view
+    // ── Sticky bar ──
     const stickyBar = document.getElementById('stickyBar');
     const hero = document.querySelector('.hero');
     const observer = new IntersectionObserver(entries => {
@@ -923,6 +1227,157 @@
       else stickyBar.classList.remove('visible');
     }, { threshold: 0 });
     observer.observe(hero);
+
+    // ── Modal ──
+    const ABACATE_KEY = 'abc_prod_2XBWzZQfCgdjmEasq13NMsne';
+    const AMOUNT_CENTS = 1799;
+
+    let pollingTimer = null;
+    let currentPixId = null;
+
+    function openModal() {
+      document.getElementById('modalOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      showStep('step1');
+    }
+
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+      if (pollingTimer) { clearInterval(pollingTimer); pollingTimer = null; }
+      setTimeout(() => {
+        showStep('step1');
+        document.getElementById('inputEmail').value = '';
+        document.getElementById('inputPhone').value = '';
+        currentPixId = null;
+      }, 300);
+    }
+
+    document.getElementById('modalOverlay').addEventListener('click', e => {
+      if (e.target === document.getElementById('modalOverlay')) closeModal();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    function showStep(id) {
+      document.querySelectorAll('.modal-step').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function formatPhone(raw) {
+      return raw.replace(/\D/g, '');
+    }
+
+    function validateForm() {
+      const email = document.getElementById('inputEmail');
+      const phone = document.getElementById('inputPhone');
+      let ok = true;
+      email.classList.remove('error');
+      phone.classList.remove('error');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+        email.classList.add('error'); ok = false;
+      }
+      const digits = formatPhone(phone.value);
+      if (digits.length < 10) {
+        phone.classList.add('error'); ok = false;
+      }
+      return ok;
+    }
+
+    async function gerarPix() {
+      if (!validateForm()) return;
+
+      const btn = document.getElementById('btnGerar');
+      btn.classList.add('btn-loading');
+      btn.disabled = true;
+
+      const email = document.getElementById('inputEmail').value.trim();
+      const phone = formatPhone(document.getElementById('inputPhone').value);
+
+      try {
+        const res = await fetch('https://api.abacatepay.com/v2/transparents/create', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${ABACATE_KEY}`
+          },
+          body: JSON.stringify({
+            data: {
+              amount: AMOUNT_CENTS,
+              description: 'Glacê Espelhado Premium',
+              expiresIn: 1800,
+              customer: {
+                email: email,
+                cellphone: phone
+              }
+            }
+          })
+        });
+
+        const json = await res.json();
+
+        if (!res.ok || !json.success) {
+          throw new Error(json.error || 'Erro ao gerar PIX');
+        }
+
+        const { id, brCode, brCodeBase64 } = json.data;
+        currentPixId = id;
+
+        document.getElementById('qrImg').src = `data:image/png;base64,${brCodeBase64}`;
+        document.getElementById('pixCode').textContent = brCode;
+        document.getElementById('successEmail').textContent = email;
+
+        showStep('step2');
+        iniciarPolling();
+
+      } catch (err) {
+        alert('Não foi possível gerar o PIX. Verifique sua conexão e tente novamente.\n\n' + err.message);
+      } finally {
+        btn.classList.remove('btn-loading');
+        btn.disabled = false;
+      }
+    }
+
+    function copiarPix() {
+      const code = document.getElementById('pixCode').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        const btn = document.getElementById('btnCopy');
+        btn.textContent = '✓ Copiado';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copiar'; btn.classList.remove('copied'); }, 2500);
+      });
+    }
+
+    function iniciarPolling() {
+      if (pollingTimer) clearInterval(pollingTimer);
+      pollingTimer = setInterval(verificarPagamento, 4000);
+    }
+
+    async function verificarPagamento() {
+      if (!currentPixId) return;
+      try {
+        const res = await fetch(`https://api.abacatepay.com/v2/transparents/check?id=${currentPixId}`, {
+          headers: { 'Authorization': `Bearer ${ABACATE_KEY}` }
+        });
+        const json = await res.json();
+        if (json.success && json.data && json.data.status === 'PAID') {
+          clearInterval(pollingTimer);
+          pollingTimer = null;
+          showStep('step3');
+        }
+      } catch (_) {}
+    }
+
+    // máscara telefone
+    document.getElementById('inputPhone').addEventListener('input', function() {
+      let v = this.value.replace(/\D/g, '').slice(0, 11);
+      if (v.length > 10) v = v.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+      else if (v.length > 6) v = v.replace(/^(\d{2})(\d{4})(\d*)$/, '($1) $2-$3');
+      else if (v.length > 2) v = v.replace(/^(\d{2})(\d*)$/, '($1) $2');
+      this.value = v;
+    });
   </script>
 </body>
 </html>
