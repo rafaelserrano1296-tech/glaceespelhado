@@ -57,11 +57,12 @@ export default async function handler(req, res) {
     res.setHeader('Pragma', 'no-cache');
 
     // Dispara o WhatsApp assim que detectar pagamento
+    let zapiDebug = null;
     if (data.success && data.data?.status === 'PAID' && phone) {
-      await enviarWhatsApp(phone).catch(err => console.error('[Z-API] erro:', err.message));
+      zapiDebug = await enviarWhatsApp(phone).catch(err => ({ erro: err.message }));
     }
 
-    return res.status(200).json(data);
+    return res.status(200).json({ ...data, _zapi: zapiDebug });
   } catch (err) {
     return res.status(500).json({ success: false, error: err.message });
   }
