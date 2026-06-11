@@ -24,7 +24,7 @@
     html, body {
       height: 100%;
       font-family: 'Inter', sans-serif;
-      background: var(--dark);
+      background: #0D0D0D;
       overflow: hidden;
     }
 
@@ -173,12 +173,12 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.75);
-      backdrop-filter: blur(8px);
+      background: linear-gradient(160deg, #0D0D0D 0%, #1A1A2E 50%, #2D1B4E 100%);
       z-index: 2000;
       align-items: center;
       justify-content: center;
       padding: 20px;
+      overflow-y: auto;
     }
     .modal-overlay.open { display: flex; }
 
@@ -188,7 +188,7 @@
       width: 100%;
       max-width: 420px;
       overflow: hidden;
-      box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+      box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.2);
       animation: modalIn 0.3s ease;
     }
     @keyframes modalIn {
@@ -196,9 +196,42 @@
       to   { opacity: 1; transform: translateY(0) scale(1); }
     }
 
+    .modal-img {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
+    .modal-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .modal-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, rgba(13,13,13,0.85));
+      display: flex;
+      align-items: flex-end;
+      padding: 14px 18px;
+    }
+    .modal-img-overlay span {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      background: rgba(0,0,0,0.4);
+      padding: 4px 12px;
+      border-radius: 40px;
+      border: 1px solid rgba(201,168,76,0.3);
+    }
+
     .modal-header {
       background: linear-gradient(135deg, var(--dark) 0%, #2D1B4E 100%);
-      padding: 24px 28px 20px;
+      padding: 20px 28px 18px;
       text-align: center;
       position: relative;
     }
@@ -351,10 +384,17 @@
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal" role="dialog" aria-modal="true">
 
+      <div class="modal-img">
+        <img src="https://i.imgur.com/TdsApDn.jpeg" alt="Bolo glacê espelhado premium" />
+        <div class="modal-img-overlay">
+          <span>✨ Método Europeu</span>
+        </div>
+      </div>
+
       <div class="modal-header">
-        <button class="modal-close" onclick="closeModal()" aria-label="Fechar">✕</button>
-        <div class="modal-title">Glacê Espelhado Premium</div>
+        <div class="modal-title">Você está a um passo de transformar<br>seus bolos em bolos de vitrine</div>
         <div class="modal-price-badge">R$17,99 — Pagamento único</div>
+        <p style="color:rgba(255,255,255,0.5);font-size:0.75rem;margin-top:8px;">Enviaremos o acesso para o e-mail preenchido após o pagamento</p>
       </div>
 
       <div class="modal-body">
@@ -416,10 +456,8 @@
     let currentPhone = null;
     let currentEmail = null;
 
-    // Abre automaticamente ao carregar
-    window.addEventListener('load', () => {
-      setTimeout(() => openModal(), 600);
-    });
+    // Abre imediatamente ao carregar
+    window.addEventListener('load', () => openModal());
 
     function openModal() {
       document.getElementById('modalOverlay').classList.add('open');
@@ -428,6 +466,7 @@
     }
 
     function closeModal() {
+      // Só fecha após pagamento confirmado
       document.getElementById('modalOverlay').classList.remove('open');
       document.body.style.overflow = '';
       if (pollingTimer) { clearInterval(pollingTimer); pollingTimer = null; }
