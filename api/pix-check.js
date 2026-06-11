@@ -1,8 +1,7 @@
 const ABACATE_KEY = 'abc_prod_2XBWzZQfCgdjmEasq13NMsne';
 const RESEND_KEY  = 're_T4erFEi2_6x8JdFvAxYDBeEaqdjucZE8S';
 
-const VIDEO_LINK = 'https://www.youtube.com/watch?v=4qv1Qgy-xkY';
-const PDF_LINK   = 'https://drive.google.com/file/d/1Gr5LsIukyBp-URbGLJ2cryX86s22l0Pk/view?usp=sharing';
+const PDF_LINK = 'https://drive.google.com/file/d/1yfqDzKF-tghJi5PD2HzXs-2dxWsXt2N_/view?usp=sharing';
 
 async function enviarEmail(email) {
   const resp = await fetch('https://api.resend.com/emails', {
@@ -29,17 +28,10 @@ async function enviarEmail(email) {
               Clique nos botões para acessar.
             </p>
 
-            <div style="margin-bottom:20px;">
-              <a href="${VIDEO_LINK}"
-                 style="display:block;background:linear-gradient(135deg,#E91E8C,#FF4DB8);color:#fff;text-decoration:none;padding:16px 24px;border-radius:12px;font-weight:700;font-size:16px;text-align:center;">
-                🎬 Assistir Vídeo Tutorial
-              </a>
-            </div>
-
             <div style="margin-bottom:32px;">
               <a href="${PDF_LINK}"
                  style="display:block;background:linear-gradient(135deg,#C9A84C,#E8C96A);color:#000;text-decoration:none;padding:16px 24px;border-radius:12px;font-weight:700;font-size:16px;text-align:center;">
-                📄 Baixar PDF - Receita Completa
+                📄 Acessar Material Completo
               </a>
             </div>
 
