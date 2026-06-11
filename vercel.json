@@ -1,7 +1,8 @@
 {
   "rewrites": [
-    { "source": "/api/pix/create", "destination": "/api/pix-create" },
-    { "source": "/api/pix/check",  "destination": "/api/pix-check"  }
+    { "source": "/api/pix/create",  "destination": "/api/pix-create"  },
+    { "source": "/api/pix/check",   "destination": "/api/pix-check"   },
+    { "source": "/api/zapi-test",   "destination": "/api/zapi-test"   }
   ],
   "headers": [
     {
