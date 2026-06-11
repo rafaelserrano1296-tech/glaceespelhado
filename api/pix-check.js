@@ -5,8 +5,8 @@ const ZAPI_INSTANCE = '3F475FE015C681C6662B424BA5C86D92';
 const ZAPI_TOKEN    = 'C25F64EF8C59C0E65B0ED206';
 
 // Links do conteúdo — substitua quando tiver os definitivos
-const VIDEO_LINK = 'https://www.youtube.com/watch?v=SEU_VIDEO_AQUI';
-const PDF_LINK   = 'https://drive.google.com/file/d/SEU_PDF_AQUI/view?usp=sharing';
+const VIDEO_LINK = 'https://www.youtube.com/watch?v=4qv1Qgy-xkY';
+const PDF_LINK   = 'https://drive.google.com/file/d/1Gr5LsIukyBp-URbGLJ2cryX86s22l0Pk/view?usp=sharing';
 
 const ZAPI_BASE = `https://api.z-api.io/instances/${ZAPI_INSTANCE}/token/${ZAPI_TOKEN}`;
 
