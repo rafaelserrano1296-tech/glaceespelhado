@@ -12,7 +12,7 @@ async function enviarEmail(email) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      from: 'Glacê Espelhado Premium <onboarding@resend.dev>',
+      from: 'Glacê Espelhado Premium <contato@experiencepro.online>',
       to: [email],
       subject: '🎉 Seu acesso ao Glacê Espelhado Premium está liberado!',
       html: `
