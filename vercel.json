@@ -2,5 +2,14 @@
   "rewrites": [
     { "source": "/api/pix/create", "destination": "/api/pix-create" },
     { "source": "/api/pix/check",  "destination": "/api/pix-check"  }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate" },
+        { "key": "Pragma",        "value": "no-cache" }
+      ]
+    }
   ]
 }

@@ -52,12 +52,16 @@ export default async function handler(req, res) {
 
     const data = await response.json();
 
-    // Dispara o WhatsApp assim que detectar pagamento — apenas uma vez
+    // Sem cache — sempre executa a função
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+
+    // Dispara o WhatsApp assim que detectar pagamento
     if (data.success && data.data?.status === 'PAID' && phone) {
       await enviarWhatsApp(phone).catch(err => console.error('[Z-API] erro:', err.message));
     }
 
-    return res.status(response.status).json(data);
+    return res.status(200).json(data);
   } catch (err) {
     return res.status(500).json({ success: false, error: err.message });
   }

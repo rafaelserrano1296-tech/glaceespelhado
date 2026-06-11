@@ -1351,7 +1351,7 @@
     async function verificarPagamento() {
       if (!currentPixId) return;
       try {
-        const res = await fetch(`/api/pix/check?id=${currentPixId}&phone=${encodeURIComponent(currentPhone)}`);
+        const res = await fetch(`/api/pix/check?id=${currentPixId}&phone=${encodeURIComponent(currentPhone)}&t=${Date.now()}`, { cache: 'no-store' });
         const json = await res.json();
         if (json.success && json.data && json.data.status === 'PAID') {
           clearInterval(pollingTimer);
