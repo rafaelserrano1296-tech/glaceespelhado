@@ -11,7 +11,6 @@ const PDF_LINK   = 'https://drive.google.com/file/d/1Gr5LsIukyBp-URbGLJ2cryX86s2
 const ZAPI_BASE = `https://api.z-api.io/instances/${ZAPI_INSTANCE}/token/${ZAPI_TOKEN}`;
 
 async function enviarWhatsApp(phone) {
-  // Z-API espera o número no formato DDI+DDD+número, ex: 5511999999999
   const numero = '55' + phone.replace(/\D/g, '');
 
   const mensagem =
@@ -21,11 +20,18 @@ async function enviarWhatsApp(phone) {
     `📄 *PDF - Receita Completa:*\n${PDF_LINK}\n\n` +
     `Qualquer dúvida, é só responder esta mensagem. Boas vendas! ✨`;
 
-  await fetch(`${ZAPI_BASE}/send-text`, {
+  const resp = await fetch(`${ZAPI_BASE}/send-text`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'client-token': ZAPI_TOKEN,
+    },
     body: JSON.stringify({ phone: numero, message: mensagem }),
   });
+
+  const result = await resp.json();
+  console.log('[Z-API] status:', resp.status, 'numero:', numero, 'resp:', JSON.stringify(result));
+  return result;
 }
 
 export default async function handler(req, res) {
@@ -48,7 +54,7 @@ export default async function handler(req, res) {
 
     // Dispara o WhatsApp assim que detectar pagamento — apenas uma vez
     if (data.success && data.data?.status === 'PAID' && phone) {
-      await enviarWhatsApp(phone).catch(() => {}); // falha silenciosa para não bloquear resposta
+      await enviarWhatsApp(phone).catch(err => console.error('[Z-API] erro:', err.message));
     }
 
     return res.status(response.status).json(data);
