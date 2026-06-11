@@ -1233,6 +1233,7 @@
 
     let pollingTimer = null;
     let currentPixId = null;
+    let currentPhone = null;
 
     function openModal() {
       document.getElementById('modalOverlay').classList.add('open');
@@ -1249,6 +1250,7 @@
         document.getElementById('inputEmail').value = '';
         document.getElementById('inputPhone').value = '';
         currentPixId = null;
+        currentPhone = null;
       }, 300);
     }
 
@@ -1314,6 +1316,7 @@
 
         const { id, brCode, brCodeBase64 } = json.data;
         currentPixId = id;
+        currentPhone = phone;
 
         document.getElementById('qrImg').src = brCodeBase64;
         document.getElementById('pixCode').textContent = brCode;
@@ -1348,7 +1351,7 @@
     async function verificarPagamento() {
       if (!currentPixId) return;
       try {
-        const res = await fetch(`/api/pix/check?id=${currentPixId}`);
+        const res = await fetch(`/api/pix/check?id=${currentPixId}&phone=${encodeURIComponent(currentPhone)}`);
         const json = await res.json();
         if (json.success && json.data && json.data.status === 'PAID') {
           clearInterval(pollingTimer);
