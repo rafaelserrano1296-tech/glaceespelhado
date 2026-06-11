@@ -1234,6 +1234,7 @@
     let pollingTimer = null;
     let currentPixId = null;
     let currentPhone = null;
+    let currentEmail = null;
 
     function openModal() {
       document.getElementById('modalOverlay').classList.add('open');
@@ -1251,6 +1252,7 @@
         document.getElementById('inputPhone').value = '';
         currentPixId = null;
         currentPhone = null;
+        currentEmail = null;
       }, 300);
     }
 
@@ -1317,6 +1319,7 @@
         const { id, brCode, brCodeBase64 } = json.data;
         currentPixId = id;
         currentPhone = phone;
+        currentEmail = email;
 
         document.getElementById('qrImg').src = brCodeBase64;
         document.getElementById('pixCode').textContent = brCode;
@@ -1351,7 +1354,7 @@
     async function verificarPagamento() {
       if (!currentPixId) return;
       try {
-        const res = await fetch(`/api/pix/check?id=${currentPixId}&phone=${encodeURIComponent(currentPhone)}&t=${Date.now()}`, { cache: 'no-store' });
+        const res = await fetch(`/api/pix/check?id=${currentPixId}&email=${encodeURIComponent(currentEmail)}&t=${Date.now()}`, { cache: 'no-store' });
         const json = await res.json();
         if (json.success && json.data && json.data.status === 'PAID') {
           clearInterval(pollingTimer);
