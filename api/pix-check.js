@@ -39,7 +39,7 @@ async function enviarEmail(email) {
             <div style="margin-bottom:32px;">
               <a href="${PDF_LINK}"
                  style="display:block;background:linear-gradient(135deg,#C9A84C,#E8C96A);color:#000;text-decoration:none;padding:16px 24px;border-radius:12px;font-weight:700;font-size:16px;text-align:center;">
-                📄 Baixar Ebook Completo
+                📄 Baixar Receita com as Quantidades Certas
               </a>
             </div>
 
