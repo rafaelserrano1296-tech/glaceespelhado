@@ -1,7 +1,7 @@
 const ABACATE_KEY = 'abc_prod_2XBWzZQfCgdjmEasq13NMsne';
 const RESEND_KEY  = 're_T4erFEi2_6x8JdFvAxYDBeEaqdjucZE8S';
 
-const PDF_LINK = 'https://drive.google.com/file/d/1yfqDzKF-tghJi5PD2HzXs-2dxWsXt2N_/view?usp=sharing';
+const PDF_LINK = 'https://drive.google.com/file/d/1XIXzaGWbCb7lucvWslVfk3QV6ueNtPl8/view';
 
 async function enviarEmail(email) {
   const resp = await fetch('https://api.resend.com/emails', {
